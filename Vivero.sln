@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28803.452
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vivero", "Vivero\Vivero.vcxproj", "{BE05A610-0C6B-482E-8095-91C2FEE9444E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{BE05A610-0C6B-482E-8095-91C2FEE9444E}.Debug|x64.ActiveCfg = Debug|x64
+		{BE05A610-0C6B-482E-8095-91C2FEE9444E}.Debug|x64.Build.0 = Debug|x64
+		{BE05A610-0C6B-482E-8095-91C2FEE9444E}.Debug|x86.ActiveCfg = Debug|Win32
+		{BE05A610-0C6B-482E-8095-91C2FEE9444E}.Debug|x86.Build.0 = Debug|Win32
+		{BE05A610-0C6B-482E-8095-91C2FEE9444E}.Release|x64.ActiveCfg = Release|x64
+		{BE05A610-0C6B-482E-8095-91C2FEE9444E}.Release|x64.Build.0 = Release|x64
+		{BE05A610-0C6B-482E-8095-91C2FEE9444E}.Release|x86.ActiveCfg = Release|Win32
+		{BE05A610-0C6B-482E-8095-91C2FEE9444E}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B67383E2-A2BC-4439-87BD-A5305ECBC26A}
+	EndGlobalSection
+EndGlobal
