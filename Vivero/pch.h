@@ -9,6 +9,16 @@
 #define PCH_H
 
 #include "Helper.h"
+#include "Planta.h"
+#include "Insumo.h"
+
+struct Encabezado
+{
+	int px;
+	int py;
+	string titulo;
+	string mensaje;
+};
 
 // TODO: agregue aquí los encabezados que desee precompilar
 

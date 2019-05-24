@@ -1,15 +1,18 @@
 #include "pch.h"
-#include "Menu.h"
-#include "Planta.h"
 #include <iostream>
+#include <istream>
 #include <string>
+#include <fstream>
+#include <iostream>
+#include <stdlib.h>
+
+
 using namespace std;
 
-Planta *p;
+Helper *ph;
 
 Planta::Planta()
 {
-	p = new Planta();
 }
 
 
@@ -17,36 +20,91 @@ Planta::~Planta()
 {
 }
 
-void Planta::setNombrePlanta(int opcion)
+void Planta::set_nombre_planta(int planta)
 {
-	switch (opcion) {
-		case 1: p->nombrePlanta = "Ornamental";
-		case 2: p->nombrePlanta = "Medicinal";
-		case 3: p->nombrePlanta = "Silvestre";
-	}
-
-	switch (opcion) {
-		case 1: p->nombreArchivo = "Ornamental.txt";
-		case 2: p->nombreArchivo = "Medicinal.txt";
-		case 3: p->nombreArchivo = "Silvestre.txt";
-	}
-
-	switch (opcion) {
-		case 1: p->nombreArchivoHistorial = "Historial_ornamental.txt";
-		case 2: p->nombreArchivoHistorial = "Historial_medicinal.txt";
-		case 3: p->nombreArchivoHistorial = "Historial_silvestre.txt";
+	switch (planta) {
+		case 1: 
+			nomPlanta = "ORNAMENTAL";
+			nomPlantaArchivo = "Ornamental.txt";
+			nomPlantaArchivoHistorial = "Historial_ornamental.txt";
+		break;
+		case 2: 
+			nomPlanta = "SILVESTRE";
+			nomPlantaArchivo = "Silvestre.txt";
+			nomPlantaArchivoHistorial = "Historial_silvestre.txt";
+		break;
+		case 3: 
+			nomPlanta = "MEDICINAL";
+			nomPlantaArchivo = "Medicinal.txt";
+			nomPlantaArchivoHistorial = "Historial_medicinal.txt";
+		break;
 	}
 }
 
-void Planta::setNombreArchivo(int opcion)
+void Planta::PlantaOperacion(int planta)
 {
+	switch (planta)
+	{
+		case 1:
+			NuevaPlanta();
+		break;
+		default:
+			if (planta != 6) 
+			{
+				ph->SaltoLinea(1);
+				cout << "Ups! Ha seleccionado una operacion incorrecta.";
+				ph->SaltoLinea(1);
+				ph->Pausa();
+			}
+		break;
+	}
 }
 
-void Planta::setNombreHistorial(int opcion)
+void Planta::EncabezadoPlanta(string mensaje)
 {
+	Encabezado edatos;
+	edatos.px = 50;
+	edatos.py = 1;
+	edatos.titulo  = "VIVERO LAS FLORES - MODULO DE PLANTAS -  PLANTA " + nomPlanta;
+	edatos.mensaje = mensaje;
+	ph->verEncabezado(edatos);
 }
 
-void Planta::MenuOperacion()
+void Planta::NuevaPlanta()
 {
-	p->MenuPlantaOperacion();
+	Pdatos datos;
+	int  continuar = 1;
+
+	do {
+		EncabezadoPlanta("NUEVA PLANTA: complete el formulario por favor:");
+
+		int correlativo = ph->VerCorrelativo(nomPlantaArchivo);
+		string subcodigo = "P" + nomPlanta.substr(0, 1) + "-";
+
+		cout << "- Codigo: " << subcodigo << correlativo;
+		datos.correlativo = correlativo;
+		datos.codigo = subcodigo;
+		ph->SaltoLinea(2);
+
+		cout << "- Nombre: ";
+		cin >> datos.nombre;
+		ph->SaltoLinea(1);
+
+		getchar();
+		cout << "- Descripcion: ";
+		getline(cin, datos.descripcion);
+		cin.sync();
+		ph->SaltoLinea(3);
+
+		ofstream guardar(nomPlantaArchivo, ios::app);
+		guardar << "|" << datos.correlativo 
+			    << "|" << datos.codigo << datos.correlativo 
+			    << "|" << datos.nombre 
+			    << "|" << datos.descripcion << endl;
+		guardar.close();
+
+		cout << "La planta fue agregada correctamente.";
+		continuar = ph->Continuar();
+
+	} while (continuar == 1);
 }

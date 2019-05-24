@@ -27,6 +27,9 @@
     <ClInclude Include="Planta.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
+    <ClInclude Include="Insumo.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -42,6 +45,9 @@
       <Filter>Archivos de origen</Filter>
     </ClCompile>
     <ClCompile Include="Planta.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="Insumo.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
   </ItemGroup>

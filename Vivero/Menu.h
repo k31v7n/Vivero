@@ -3,15 +3,14 @@
 #include <string>
 using namespace std;
 
-class Menu
+class Menu : public Planta, public Insumo
 {
 public:
 	Menu();
 	~Menu();
 	int opcion;
-	void verEncabezado(string titulo, string mensaje);
 	int MenuPrincipal();
 	int MenuPlanta();
-	int MenuPlantaOperacion();
+	void MenuPlantaOperacion(int planta);
 };
 
