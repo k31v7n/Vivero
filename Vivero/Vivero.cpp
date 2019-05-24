@@ -3,8 +3,7 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
-Helper *hv;
+Helper *vh;
 Menu *m;
 
 int mprincipal;
@@ -12,7 +11,6 @@ int mplanta;
 
 int main()
 {
-	hv = new Helper();
 	m = new Menu();
 
 	mprincipal = 0;
@@ -37,10 +35,11 @@ int main()
 			default:
 				if (mprincipal != 6) 
 				{
-					hv->SaltoLinea(1);
+				
+					vh->SaltoLinea(1);
 					cout << "Ups! Ha seleccionado una opcion incorrecta. Intentelo de nuevo.";
-					hv->SaltoLinea(1);
-					hv->Pausa();
+					vh->SaltoLinea(1);
+					vh->Pausa();
 				}
 			break;
 		}

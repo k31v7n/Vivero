@@ -22,5 +22,9 @@ public:
 	void PlantaOperacion(int planta);
 	void EncabezadoPlanta(string mensaje);
 	void NuevaPlanta();
+	void MostrarPlanta();
+	void MostrarPlantaTermino();
+	void MostrarPlantaTodos();
+	void HeadTable();
 };
 

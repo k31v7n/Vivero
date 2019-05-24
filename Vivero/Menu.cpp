@@ -4,13 +4,11 @@
 #include <iostream>
 #include <string>
 using namespace std;
-
-Helper *h;
+Helper *hm;
 
 Menu::Menu()
 {
 	opcion = 0;
-	h = new Helper();
 }
 
 
@@ -25,7 +23,7 @@ int Menu::MenuPrincipal()
 	edatos.py = 1;
 	edatos.titulo  = "VIVERO LAS FLORES";
 	edatos.mensaje = "Bienvenidos al menu principal. Elija un modulo para continuar:";
-	h->verEncabezado(edatos);
+	hm->verEncabezado(edatos);
 
 	cout << "1. Plantas" << endl;
 	cout << "2. Insumos" << endl;
@@ -33,7 +31,7 @@ int Menu::MenuPrincipal()
 	cout << "4. Inventario"  << endl;
 	cout << "5. Facturacion" << endl;
 	cout << "6. Cerrar Sesion";
-	h->SaltoLinea(2);
+	hm->SaltoLinea(2);
 	cout << "Modulo seleccionado: ";
 	
 	cin  >> opcion;
@@ -48,13 +46,13 @@ int Menu::MenuPlanta()
 	edatos.py = 1;
 	edatos.titulo = "VIVERO LAS FLORES - MODULO DE PLANTAS";
 	edatos.mensaje = "Seleccione un tipo de planta para continuar:";
-	h->verEncabezado(edatos);
+	hm->verEncabezado(edatos);
 
 	cout << "1. Ornamental" << endl;
 	cout << "2. Silvestre"  << endl;
 	cout << "3. Medicinal"  << endl;
 	cout << "4. Regresar a menu principal";
-	h->SaltoLinea(2);
+	hm->SaltoLinea(2);
 	cout << "Tipo seleccionado: ";
 	cin  >> opcion;
 
@@ -71,7 +69,7 @@ void Menu::MenuPlantaOperacion(int planta)
 		edatos.py = 1;
 		edatos.titulo = "VIVERO LAS FLORES - MODULO DE PLANTAS -  PLANTA " + nomPlanta;
 		edatos.mensaje = "Seleccione una operacion para continuar:";
-		h->verEncabezado(edatos);
+		hm->verEncabezado(edatos);
 
 		cout << "1. Nueva" << endl;
 		cout << "2. Consulta" << endl;
@@ -79,7 +77,7 @@ void Menu::MenuPlantaOperacion(int planta)
 		cout << "4. Cambio de estado" << endl;
 		cout << "5. Historial" << endl;
 		cout << "6. Regresar al menu de tipos";
-		h->SaltoLinea(2);
+		hm->SaltoLinea(2);
 		cout << "Operacion seleccionada: ";
 		cin >> opcion;
 

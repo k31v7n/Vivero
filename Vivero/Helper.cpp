@@ -8,8 +8,11 @@
 #include <iostream>
 using namespace std;
 
+
+
 Helper::Helper()
 {
+	
 }
 
 
@@ -160,4 +163,20 @@ int Helper::Continuar()
 	cin >> continuar;
 
 	return continuar;
+}
+
+string Helper::verDato(string dato)
+{
+	do {
+		getline(cin, dato);
+		cin.sync();
+	} while (dato == "");
+
+	return dato;
+}
+
+void Helper::PosicionIncono(int x, int y, int codigo)
+{
+	PosicionTextoXY(x, y);
+	printf("%c\n", codigo);
 }

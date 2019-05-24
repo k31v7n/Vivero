@@ -6,7 +6,6 @@
 #include <iostream>
 #include <stdlib.h>
 
-
 using namespace std;
 
 Helper *ph;
@@ -14,7 +13,6 @@ Helper *ph;
 Planta::Planta()
 {
 }
-
 
 Planta::~Planta()
 {
@@ -48,6 +46,9 @@ void Planta::PlantaOperacion(int planta)
 		case 1:
 			NuevaPlanta();
 		break;
+		case 2:
+			MostrarPlanta();
+		break;
 		default:
 			if (planta != 6) 
 			{
@@ -63,7 +64,7 @@ void Planta::PlantaOperacion(int planta)
 void Planta::EncabezadoPlanta(string mensaje)
 {
 	Encabezado edatos;
-	edatos.px = 50;
+	edatos.px = 30;
 	edatos.py = 1;
 	edatos.titulo  = "VIVERO LAS FLORES - MODULO DE PLANTAS -  PLANTA " + nomPlanta;
 	edatos.mensaje = mensaje;
@@ -86,16 +87,15 @@ void Planta::NuevaPlanta()
 		datos.codigo = subcodigo;
 		ph->SaltoLinea(2);
 
+		getchar();
 		cout << "- Nombre: ";
-		cin >> datos.nombre;
+		datos.nombre = ph->verDato(datos.nombre);
 		ph->SaltoLinea(1);
 
-		getchar();
 		cout << "- Descripcion: ";
-		getline(cin, datos.descripcion);
-		cin.sync();
+		datos.descripcion = ph->verDato(datos.descripcion);
 		ph->SaltoLinea(3);
-
+	
 		ofstream guardar(nomPlantaArchivo, ios::app);
 		guardar << "|" << datos.correlativo 
 			    << "|" << datos.codigo << datos.correlativo 
@@ -107,4 +107,95 @@ void Planta::NuevaPlanta()
 		continuar = ph->Continuar();
 
 	} while (continuar == 1);
+}
+
+void Planta::MostrarPlanta()
+{
+	int busca = 0;
+
+	do {
+		EncabezadoPlanta("CONSULTA DE PLANTAS: seleccione una opcion de busqueda:");
+		cout << "1. Por termino" << endl;
+		cout << "2. Mostrar todos" << endl;
+		cout << "3. Cancelar";
+		ph->SaltoLinea(2);
+
+		cout << "Opcion seleccionada: ";
+		cin >> busca;
+		
+		if (1 == busca) {
+			MostrarPlantaTermino();
+
+		} else if (2 == busca) {
+			MostrarPlantaTodos();
+
+		} else if (3 != busca) {
+
+			ph->SaltoLinea(2);
+			cout << "Opcion de busqueda incorrecta. ";
+			ph->Pausa();
+		}
+
+	} while (3 != busca);
+}
+
+void Planta::MostrarPlantaTermino()
+{
+}
+
+void Planta::MostrarPlantaTodos()
+{
+	ifstream lista(nomPlantaArchivo);
+	if (!lista.fail()) {
+		HeadTable();
+		do {
+			
+		} while (!lista.eof());
+	} else {
+		cout << "Ups! No se encontro ningun registro";
+		ph->SaltoLinea(1);
+		ph->Pausa();
+	}
+	lista.close();
+}
+
+void Planta::HeadTable()
+{
+	EncabezadoPlanta("CONSULTA DE PLANTAS: seleccione una opcion de busqueda:");
+
+	ph->PosicionIncono(0, 6, 195);
+	ph->PosicionIncono(20, 6, 194);
+	ph->PosicionIncono(40, 6, 194);
+	ph->PosicionIncono(60, 6, 194);
+
+	ph->PosicionIncono(0, 7, 179);
+	ph->PosicionTextoXY(2, 7);
+	cout << "Numero";
+	
+	ph->PosicionIncono(20, 7, 179);
+	ph->PosicionTextoXY(24, 7);
+	cout << "Codigo";
+
+	ph->PosicionIncono(40, 7, 179);
+	ph->PosicionTextoXY(44, 7);
+	cout << "Nombre";
+
+	ph->PosicionIncono(60, 7, 179);
+	ph->PosicionTextoXY(64, 7);
+	cout << "Descripcion";
+
+	ph->PosicionIncono(0, 8, 192);
+
+	for (int i = 0; i < 118; i++)
+	{
+		ph->PosicionIncono(i+1, 8, 196);
+	}
+
+	ph->PosicionIncono(20, 8, 193);
+	ph->PosicionIncono(40, 8, 193);
+	ph->PosicionIncono(60, 8, 193);
+
+	ph->PosicionIncono(119, 6, 180);
+	ph->PosicionIncono(119, 7, 179);
+	ph->PosicionIncono(119, 8, 217);
 }

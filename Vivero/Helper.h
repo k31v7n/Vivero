@@ -8,6 +8,7 @@ class Helper
 public:
 	Helper();
 	~Helper();
+	
 	void LimpiarPantalla();
 	void PosicionTextoXY(int x, int y);
 	void SaltoLinea(int cantidad);
@@ -17,5 +18,7 @@ public:
 	void verEncabezado(struct Encabezado);
 	int VerCorrelativo(string archivo);
 	int Continuar();
+	string verDato(string dato);
+	void PosicionIncono(int x, int y, int codigo);
 };
 
