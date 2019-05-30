@@ -1,1 +1,5 @@
-|1|PS-1|Prueba|Es otra prueba
+1|PS-1|Lechuguilla|Son usadas como motivo decorativo|Activo
+2|PS-2|Ortiga|Caracterizadas por su fama de malas hierbas|Activo
+3|PS-3|Ninfea|Son sumamente bellas|Activo
+4|PS-4|Llanten|Con grandes beneficios medicinales|Activo
+5|PS-5|Quetzal|Son de hojas largas|Activo

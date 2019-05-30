@@ -18,6 +18,8 @@ public:
 	string nomPlanta = "";
 	string nomPlantaArchivo = "";
 	string nomPlantaArchivoHistorial = "";
+	bool insumo = false;
+	bool cliente = false;
 	void set_nombre_planta(int planta);
 	void PlantaOperacion(int planta);
 	void EncabezadoPlanta(string mensaje);
@@ -26,5 +28,9 @@ public:
 	void MostrarPlantaTermino();
 	void MostrarPlantaTodos();
 	void HeadTable();
+	void FooterTable(int pos);
+	void ModificarPlanta();
+	void CambioEstadoPlanta();
+	void HistorialPlanta();
 };
 

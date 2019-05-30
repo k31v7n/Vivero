@@ -1,2 +1,5 @@
-|1|PM-1|Jose|Me la chupa
-|2|PM-2|asdf|asdf
+1|PM-1|Ajo|Actúa como anticoagulante|Activo
+2|PM-2|Ajenjo|Ayuda a combatir el mal aliento|Activo
+3|PM-3|Albahaca|El zumo de las hojas alivia bronquitis|Activo
+4|PM-4|Aloe Vera|Aplicar sobre cortes, heridas|Activo
+5|PM-5|Apio|sirve para combatir el estreñimiento|Activo

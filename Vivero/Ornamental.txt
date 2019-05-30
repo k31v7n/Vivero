@@ -1,6 +1,5 @@
-|1|PO-1|Ejemplo|Prueba de comentario
-|2|PO-2|Prueba dos|Prueba de textp
-|3|PO-3|Tres planta|Cuatro texto
-|4|PO-4||
-|5|PO-5|Test|Prueba
-|6|PO-6|Parueba de muchos|
+1|PO-1|Margarita|Es una planta herbácea y perenne|Activo
+2|PO-2|Dalia|Permiten resistir durante el invierno|Activo
+3|PO-3|Helechos|decoran muy bien la casa|Activo
+4|PO-4|Coleos|Tienen una forma de gota y un color|Activo
+5|PO-5|Alcatraz|Necesita de mucho líquido|Activo

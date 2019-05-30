@@ -20,5 +20,7 @@ public:
 	int Continuar();
 	string verDato(string dato);
 	void PosicionIncono(int x, int y, int codigo);
+	bool ValidarNombre(string nombre, string archivo, string codigo);
+	bool validaCodigo(string codigo, string archivo);
 };
 

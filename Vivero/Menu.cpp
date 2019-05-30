@@ -86,3 +86,78 @@ void Menu::MenuPlantaOperacion(int planta)
 	} while (opcion != 6);
 	
 }
+
+void Menu::MenuInsumosOperacion()
+{
+	set_nombre_planta(4);
+
+	do {
+		Encabezado edatos;
+		edatos.px = 30;
+		edatos.py = 1;
+		edatos.titulo = "VIVERO LAS FLORES - MODULO DE INSUMOS";
+		edatos.mensaje = "Seleccione una operacion para continuar:";
+		hm->verEncabezado(edatos);
+
+		cout << "1. Nueva" << endl;
+		cout << "2. Consulta" << endl;
+		cout << "3. Modificar" << endl;
+		cout << "4. Cambio de estado" << endl;
+		cout << "5. Historial" << endl;
+		cout << "6. Regresar al menu principal";
+		hm->SaltoLinea(2);
+		cout << "Operacion seleccionada: ";
+		cin >> opcion;
+
+		PlantaOperacion(opcion);
+
+	} while (opcion != 6);
+}
+
+void Menu::MenuClienteOperacion()
+{
+	set_nombre_planta(5);
+
+	do {
+		Encabezado edatos;
+		edatos.px = 30;
+		edatos.py = 1;
+		edatos.titulo = "VIVERO LAS FLORES - MODULO DE CLIENTES";
+		edatos.mensaje = "Seleccione una operacion para continuar:";
+		hm->verEncabezado(edatos);
+
+		cout << "1. Nueva" << endl;
+		cout << "2. Consulta" << endl;
+		cout << "3. Modificar" << endl;
+		cout << "4. Cambio de estado" << endl;
+		cout << "5. Historial" << endl;
+		cout << "6. Regresar al menu principal";
+		hm->SaltoLinea(2);
+		cout << "Operacion seleccionada: ";
+		cin >> opcion;
+
+		PlantaOperacion(opcion);
+
+	} while (opcion != 6);
+}
+
+void Menu::MenuInventario()
+{
+	do {
+		Encabezado edatos;
+		edatos.px = 30;
+		edatos.py = 1;
+		edatos.titulo = "VIVERO LAS FLORES - MODULO DE INVENTARIO";
+		edatos.mensaje = "Seleccione una operacion para continuar:";
+		hm->verEncabezado(edatos);
+
+		cout << "1. Nuevo" << endl;
+		cout << "2. Consulta" << endl;
+		cout << "3. Regresar al menu principal";
+		hm->SaltoLinea(2);
+		cout << "Operacion seleccionada: ";
+		cin >> opcion;
+
+		OperacionInventario(opcion);
+	} while (opcion != 3);
+}

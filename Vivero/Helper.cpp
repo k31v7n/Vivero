@@ -1,15 +1,14 @@
 #include "pch.h"
 #include "Helper.h"
 #include <iostream>
+#include <vector>
 #include <string>
 #include <stdio.h>  
 #include <windows.h>  
 #include <fstream>
 #include <iostream>
 using namespace std;
-
-
-
+vector<string> explode1(const string &delimiter, const string &explodeme);
 Helper::Helper()
 {
 	
@@ -155,9 +154,8 @@ int Helper::VerCorrelativo(string archivo)
 int Helper::Continuar()
 {
 	int continuar;
-	SaltoLinea(1);
-	LineaDivision(70, "-");
-	cout << "¿Desear realizar de nuevo la operacion?" << endl;
+	SaltoLinea(2);
+	cout << "Desear realizar de nuevo la operacion?" << endl;
 	cout << "1. Si" << endl;
 	cout << "2. No" << endl;
 	cin >> continuar;
@@ -179,4 +177,96 @@ void Helper::PosicionIncono(int x, int y, int codigo)
 {
 	PosicionTextoXY(x, y);
 	printf("%c\n", codigo);
+}
+
+bool Helper::ValidarNombre(string nombre, string archivo, string codigo)
+{
+	string linea;
+	bool exito = true;
+
+	ifstream lista(archivo);
+	if (!lista.fail()) {
+		do {
+			if (!lista.eof()) {
+				getline(lista, linea);
+
+				if (!empty(linea)) {
+					vector<string> vh = explode1("|", linea);
+
+					if (!empty(codigo)) {
+						if (vh[2] == nombre && vh[0] != codigo) {
+							exito = false;
+							break;
+						}
+					}
+					else {
+						if (vh[2] == nombre) {
+							exito = false;
+							break;
+						}
+					}
+				}
+			}
+		} while (!lista.eof());
+	}
+	lista.close();
+
+	return exito;
+}
+
+bool Helper::validaCodigo(string codigo, string archivo)
+{
+	string linea;
+	bool exito = true;
+
+	ifstream lista(archivo);
+	if (!lista.fail()) {
+		do {
+			if (!lista.eof()) {
+				getline(lista, linea);
+
+				if (!empty(linea)) {
+					vector<string> vh = explode1("|", linea);
+					if (vh[1] == codigo) {
+						exito = false;
+						break;
+					}
+				}
+			}
+		} while (!lista.eof());
+	}
+	lista.close();
+
+	return exito;
+}
+
+vector<string> explode1(const string &delimiter, const string &str)
+{
+	vector<string> arr;
+
+	int strleng = str.length();
+	int delleng = delimiter.length();
+	if (delleng == 0)
+		return arr;//no change
+
+	int i = 0;
+	int k = 0;
+	while (i < strleng)
+	{
+		int j = 0;
+		while (i + j < strleng && j < delleng && str[i + j] == delimiter[j])
+			j++;
+		if (j == delleng)//found delimiter
+		{
+			arr.push_back(str.substr(k, i - k));
+			i += delleng;
+			k = i;
+		}
+		else
+		{
+			i++;
+		}
+	}
+	arr.push_back(str.substr(k, i - k));
+	return arr;
 }

@@ -8,6 +8,7 @@ Menu *m;
 
 int mprincipal;
 int mplanta;
+int minsumo;
 
 int main()
 {
@@ -32,6 +33,15 @@ int main()
 				} while (mplanta != 4);
 				
 			break;
+			case 2:
+				m->MenuInsumosOperacion();
+			break;
+			case 3:
+				m->MenuClienteOperacion();
+				break;
+			case 4:
+				m->MenuInventario();
+				break;
 			default:
 				if (mprincipal != 6) 
 				{

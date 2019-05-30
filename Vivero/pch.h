@@ -10,7 +10,7 @@
 
 #include "Helper.h"
 #include "Planta.h"
-#include "Insumo.h"
+#include "Inventario.h"
 
 struct Encabezado
 {
